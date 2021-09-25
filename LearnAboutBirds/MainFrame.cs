@@ -24,8 +24,10 @@ namespace LearnAboutBirds
 
             try
             {
+                this.BackgroundImage = null;
                 this.controller.LoadImages();
                 this.ResizeDataGrid();
+                this.BackgroundImage = Properties.Resources.background;
             }
             catch(Exception ex)
             {
@@ -42,6 +44,18 @@ namespace LearnAboutBirds
                     Convert.ToInt32((this.Width - this.datagrid.Width) / 2.0),
                     Convert.ToInt32((this.Height - this.datagrid.Height) / 2.0)
                 );
+        }
+
+        // to disable flickering when loading images
+        // source: https://www.codeproject.com/Tips/112132/Flicker-free-Form-Painting
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
     }
 }
