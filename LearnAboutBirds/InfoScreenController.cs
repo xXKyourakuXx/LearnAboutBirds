@@ -19,10 +19,13 @@
             if (!data.LoadBirdsFromCSV())
                 throw new Exception($"Hiba a madarak betöltése közben a CSV fájlban. {data.CSVPath}");
 
+            int width = 0;
+            width = Utils.CalculateBirdSize(data.Birds.Count);
+
             int i = 0;
             foreach (Bird item in data.Birds)
             {
-                BirdInfo tmp = new BirdInfo(item);
+                BirdInfo tmp = new BirdInfo(item, width);
                 tmp.Parent = this.view.DataPanel;
                 this.view.DataPanel.Controls.Add(tmp);
                 this.view.DataPanel.Controls.SetChildIndex(tmp, i++);

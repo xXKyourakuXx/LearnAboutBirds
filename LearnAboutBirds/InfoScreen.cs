@@ -21,6 +21,9 @@
                     Convert.ToInt32(Program.main.Height * 0.9)
                 );
 
+            
+
+
             try
             {
                 this.SuspendLayout();

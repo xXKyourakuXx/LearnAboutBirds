@@ -56,5 +56,15 @@
             if (! (sp is null) )
                 sp.Stop();
         }
+
+        static public int CalculateBirdSize(int count)
+        {
+            float usableArea = (Program.main.Width * Program.main.Height) *0.35f;
+            float areaOfOneBird = usableArea / (float)count;
+
+            int w =  Convert.ToInt32(Math.Sqrt(areaOfOneBird));
+
+            return (w);
+        }
     }
 }

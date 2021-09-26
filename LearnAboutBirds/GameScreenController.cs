@@ -27,9 +27,12 @@
             int randomSoundIndex = new Random().Next(0, count);
             Bird b = this.randomList[randomSoundIndex];
 
+            int width = 0;
+            width = Utils.CalculateBirdSize(count);
+
             this.view.DataPanel.Controls.Clear();
             foreach (Bird item in this.randomList)
-                this.view.DataPanel.Controls.Add(new BirdInfo(item, true, b));
+                this.view.DataPanel.Controls.Add(new BirdInfo(item, width, true, b));
 
             // start playing sound until the user clicks on a bird's image, then the Utils.StopSound() is called
             Utils.PlaySound(this.randomList[randomSoundIndex].SoundLocation, true);

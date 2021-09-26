@@ -57,7 +57,7 @@
                 this.SuspendLayout();
                 this.buttonRestart.Enabled = false;
                 this.BackgroundImage = null;
-                this.controller.LoadRandomImages(3);
+                this.controller.LoadRandomImages(Properties.Settings.Default.NumberOfBirds);
                 this.BackgroundImage = Utils.AlterTransparency(Properties.Resources.gameBackground, 140);
                 this.buttonRestart.Enabled = true;
                 this.ResumeLayout(false);

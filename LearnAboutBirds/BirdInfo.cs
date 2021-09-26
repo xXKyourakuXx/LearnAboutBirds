@@ -13,20 +13,21 @@
         private Bird bird;
         private Bird correctAnswer;
         private bool isInGame;
+        private float ratio;
 
         public Bird Bird { get { return this.bird; } }
 
-        public BirdInfo(Bird bird, bool isInGame = false, Bird correctAnswer = null)
+        public BirdInfo(Bird bird, int width, bool isInGame = false, Bird correctAnswer = null)
         {
             InitializeComponent();
 
             this.bird = bird;
             this.isInGame = isInGame;
             this.correctAnswer = correctAnswer;
-
+            ratio = isInGame ? 0.75f : 1;
             this.SuspendLayout();
-            this.Width = Properties.Settings.Default.BirdWidth;
-            this.Height = Properties.Settings.Default.BirdHeight;
+            this.Width = System.Convert.ToInt32(width * ratio);
+            this.Height = width;
             this.labelName.Text = bird.Name;
             this.pictureBoxImage.Image = Bitmap.FromFile(bird.ImageLocation);
             this.soundLocation = bird.SoundLocation;

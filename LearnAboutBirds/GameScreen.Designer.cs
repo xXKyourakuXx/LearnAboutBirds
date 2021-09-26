@@ -29,6 +29,7 @@ namespace LearnAboutBirds
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.buttonToInfo = new System.Windows.Forms.Button();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.datagrid = new System.Windows.Forms.FlowLayoutPanel();
@@ -36,41 +37,43 @@ namespace LearnAboutBirds
             // 
             // buttonToInfo
             // 
-            this.buttonToInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonToInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonToInfo.AutoSize = true;
             this.buttonToInfo.BackColor = System.Drawing.Color.Gold;
+            this.buttonToInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonToInfo.BackgroundImage")));
+            this.buttonToInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonToInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonToInfo.FlatAppearance.BorderSize = 0;
             this.buttonToInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Khaki;
             this.buttonToInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonToInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToInfo.ForeColor = System.Drawing.Color.White;
-            this.buttonToInfo.Location = new System.Drawing.Point(537, 401);
+            this.buttonToInfo.Location = new System.Drawing.Point(3, 401);
             this.buttonToInfo.Name = "buttonToInfo";
             this.buttonToInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonToInfo.Size = new System.Drawing.Size(154, 69);
+            this.buttonToInfo.Size = new System.Drawing.Size(106, 69);
             this.buttonToInfo.TabIndex = 2;
-            this.buttonToInfo.Text = "Vissza";
             this.buttonToInfo.UseVisualStyleBackColor = false;
             this.buttonToInfo.Click += new System.EventHandler(this.buttonToInfo_Click);
             // 
             // buttonRestart
             // 
-            this.buttonRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRestart.AutoSize = true;
             this.buttonRestart.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonRestart.BackgroundImage = global::LearnAboutBirds.Properties.Resources.reset;
+            this.buttonRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRestart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRestart.FlatAppearance.BorderSize = 0;
             this.buttonRestart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Khaki;
             this.buttonRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonRestart.ForeColor = System.Drawing.Color.White;
-            this.buttonRestart.Location = new System.Drawing.Point(3, 401);
+            this.buttonRestart.Location = new System.Drawing.Point(540, 401);
             this.buttonRestart.Name = "buttonRestart";
             this.buttonRestart.Padding = new System.Windows.Forms.Padding(10);
             this.buttonRestart.Size = new System.Drawing.Size(154, 69);
             this.buttonRestart.TabIndex = 3;
-            this.buttonRestart.Text = "Újra";
             this.buttonRestart.UseVisualStyleBackColor = false;
             this.buttonRestart.Click += new System.EventHandler(this.buttonRestart_Click);
             // 
@@ -98,7 +101,7 @@ namespace LearnAboutBirds
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(694, 473);
+            this.Size = new System.Drawing.Size(697, 473);
             this.Load += new System.EventHandler(this.GameScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
