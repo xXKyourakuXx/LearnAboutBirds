@@ -354,6 +354,7 @@ namespace AdministratorApplication
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Mentés";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // flowLayoutPanelLeft
             // 

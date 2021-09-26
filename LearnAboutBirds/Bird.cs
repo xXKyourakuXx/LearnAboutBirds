@@ -44,10 +44,13 @@ namespace LearnAboutBirds
 
         public override string ToString()
         {
+			if (this.IncompatibleWithOtherBirds is null)
+				this.IncompatibleWithOtherBirds = new List<string>();
+
 			StringBuilder b = new StringBuilder(
-				$"Name: {this.Name}\t SoundLocation: {this.SoundLocation}\t " +
-				$"ImageLocation: {this.ImageLocation}\t Level: {this.Level}\t " +
-				$"Incompatible list: {String.Join(",", this.IncompatibleWithOtherBirds)}");
+				$"{this.Name};{this.SoundLocation};" +
+				$"{this.ImageLocation};{this.Level};" +
+				$"{string.Join(",", this.IncompatibleWithOtherBirds)}");
 
 			return b.ToString();
         }

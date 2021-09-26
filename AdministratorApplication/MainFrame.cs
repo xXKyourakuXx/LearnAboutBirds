@@ -88,5 +88,20 @@
 
         private void textBoxes_Leave(object sender, EventArgs e)
             => this.buttonSave.Enabled = this.CheckValues();
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.controller.SaveBirds(new Bird(
+                    this.textBoxName.Text,
+                    this.textBoxSoundLocation.Text,
+                    this.textBoxImageLocation.Text,
+                    Convert.ToInt32(this.numericUpDownLevel.Value)
+                ));
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
     }
 }
