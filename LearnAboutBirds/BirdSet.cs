@@ -40,19 +40,19 @@ namespace LearnAboutBirds
 			while(count < size && baseBirds.Count > 0)
             {
 				// generate a bird
-				Bird chosen = baseBirds[r.Next(0, this.birds.Count)];
+				Bird chosen = baseBirds[r.Next(0, baseBirds.Count)];
 
 				// filter the incompatible birds from baseBirds
 				foreach (string name in chosen.IncompatibleWithOtherBirds)
 					baseBirds = baseBirds.Where(x => !x.Name.Equals(name)).ToList();
 
 				outList.Add(chosen);
+				baseBirds.Remove(chosen);
 				count++;
 			}
 
 			return outList;
 		}
-		
 
         public override string ToString()
             => string.Join("\n", this.birds);

@@ -29,24 +29,7 @@ namespace LearnAboutBirds
         /// </summary>
         private void InitializeComponent()
         {
-            this.datagrid = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
-            // 
-            // datagrid
-            // 
-            this.datagrid.AutoSize = true;
-            this.datagrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.datagrid.BackColor = System.Drawing.Color.Transparent;
-            this.datagrid.ColumnCount = 1;
-            this.datagrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.datagrid.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.datagrid.Location = new System.Drawing.Point(152, 132);
-            this.datagrid.Margin = new System.Windows.Forms.Padding(0);
-            this.datagrid.Name = "datagrid";
-            this.datagrid.RowCount = 1;
-            this.datagrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.datagrid.Size = new System.Drawing.Size(0, 0);
-            this.datagrid.TabIndex = 0;
             // 
             // MainFrame
             // 
@@ -54,10 +37,7 @@ namespace LearnAboutBirds
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::LearnAboutBirds.Properties.Resources.background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.datagrid);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -66,14 +46,12 @@ namespace LearnAboutBirds
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Tanuljunk a madarakról!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainFrame_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel datagrid;
     }
 }
 

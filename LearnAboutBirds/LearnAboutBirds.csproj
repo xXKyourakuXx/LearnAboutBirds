@@ -59,20 +59,40 @@
     <Compile Include="BirdInfo.Designer.cs">
       <DependentUpon>BirdInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFrameController.cs" />
+    <Compile Include="GameScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreenController.cs" />
+    <Compile Include="InfoScreenController.cs" />
     <Compile Include="BirdSet.cs" />
     <Compile Include="DataLoader.cs" />
+    <Compile Include="InfoScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InfoScreen.Designer.cs">
+      <DependentUpon>InfoScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFrameController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="BirdInfo.resx">
       <DependentUpon>BirdInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoScreen.resx">
+      <DependentUpon>InfoScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
@@ -105,7 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon.ico" />
-    <None Include="Resources\icon.png" />
+    <None Include="Resources\gameBackground.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\correct.png" />
     <Content Include="sources\Bagoly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace LearnAboutBirds
+﻿namespace LearnAboutBirds
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class MainFrame : Form
     {
         private readonly MainFrameController controller;
-        public TableLayoutPanel DataPanel { get { return this.datagrid; } }
 
         public MainFrame()
         {
@@ -17,45 +15,9 @@ namespace LearnAboutBirds
             this.MinimumSize = SystemInformation.VirtualScreen.Size;
 
             this.controller = new MainFrameController(this);
-
-            int width = Convert.ToInt32(this.Width * 0.6);
-            int height = Convert.ToInt32(this.Height * 0.6);
-            this.datagrid.Size = new Size(width, height);
-
-            try
-            {
-                this.BackgroundImage = null;
-                this.controller.LoadImages();
-                this.ResizeDataGrid();
-                this.BackgroundImage = Properties.Resources.background;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            this.BackgroundImage = Utils.AlterTransparency(this.BackgroundImage, 110);
         }
 
-        private void ResizeDataGrid()
-        {
-            this.datagrid.Location = new Point
-                (
-                    Convert.ToInt32((this.Width - this.datagrid.Width) / 2.0),
-                    Convert.ToInt32((this.Height - this.datagrid.Height) / 2.0)
-                );
-        }
-
-        // to disable flickering when loading images
-        // source: https://www.codeproject.com/Tips/112132/Flicker-free-Form-Painting
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
-            }
-        }
+        private void MainFrame_Load(object sender, EventArgs e)
+            => this.controller.LoadInfoScreen();
     }
 }

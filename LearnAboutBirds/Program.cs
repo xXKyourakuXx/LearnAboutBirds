@@ -3,14 +3,17 @@
     using System;
     using System.Windows.Forms;
 
-    static class Program
+    static public class Program
     {
+        static public MainFrame main;
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrame());
+            main = new MainFrame();
+            Application.Run(main);
         }
     }
 }
