@@ -30,12 +30,12 @@
             return transparent;
         }
 
-        static public Point ResizeDataGrid(System.Windows.Forms.UserControl form, System.Windows.Forms.TableLayoutPanel datagrid)
+        static public Point PositionDataGrid(System.Windows.Forms.UserControl form)
         {
             return new Point
                 (
-                    Convert.ToInt32((form.Width - datagrid.Width) / 2.0),
-                    Convert.ToInt32((form.Height - datagrid.Height) / 2.0)
+                    Convert.ToInt32(form.Width * 0.55),
+                    50
                 );
         }
 

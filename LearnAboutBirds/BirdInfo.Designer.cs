@@ -79,7 +79,6 @@ namespace LearnAboutBirds
             this.Controls.Add(this.panelName);
             this.Name = "BirdInfo";
             this.Size = new System.Drawing.Size(292, 188);
-            this.Load += new System.EventHandler(this.BirdInfo_Load);
             this.Leave += new System.EventHandler(this.BirdInfo_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.panelName.ResumeLayout(false);

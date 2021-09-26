@@ -8,7 +8,7 @@
     {
         private readonly GameScreenController controller;
 
-        public TableLayoutPanel DataPanel { get { return this.datagrid; } }
+        public FlowLayoutPanel DataPanel { get { return this.datagrid; } }
 
         public GameScreen()
         {
@@ -16,9 +16,15 @@
 
             this.controller = new GameScreenController(this);
 
+            this.datagrid.Size = new Size(
+                    Convert.ToInt32(Program.main.Width * 0.55),
+                    Convert.ToInt32(Program.main.Height * 0.9)
+                );
+
             try
             {
                 this.buttonRestart_Click(this, EventArgs.Empty);
+                this.datagrid.Location = Utils.PositionDataGrid(this);
             }
             catch (Exception ex)
             {
@@ -50,12 +56,8 @@
             {
                 this.SuspendLayout();
                 this.buttonRestart.Enabled = false;
-                int width = Convert.ToInt32(this.Width * 0.6);
-                int height = Convert.ToInt32(this.Height * 0.6);
-                this.datagrid.Size = new Size(width, height);
                 this.BackgroundImage = null;
                 this.controller.LoadRandomImages(3);
-                this.datagrid.Location = Utils.ResizeDataGrid(this, datagrid);
                 this.BackgroundImage = Utils.AlterTransparency(Properties.Resources.gameBackground, 140);
                 this.buttonRestart.Enabled = true;
                 this.ResumeLayout(false);

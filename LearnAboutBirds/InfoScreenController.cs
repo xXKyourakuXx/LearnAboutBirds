@@ -19,20 +19,13 @@
             if (!data.LoadBirdsFromCSV())
                 throw new Exception($"Hiba a madarak betöltése közben a CSV fájlban. {data.CSVPath}");
 
+            int i = 0;
             foreach (Bird item in data.Birds)
             {
-                this.view.DataPanel.Controls.Add
-                    (
-                        new BirdInfo(item),
-                        this.view.DataPanel.ColumnStyles.Count - 1,
-                        this.view.DataPanel.RowStyles.Count - 1
-                    );
-
-                if (this.view.DataPanel.Width >= this.view.Width * 0.6)
-                {
-                    this.view.DataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
-                    this.view.DataPanel.RowCount++;
-                }
+                BirdInfo tmp = new BirdInfo(item);
+                tmp.Parent = this.view.DataPanel;
+                this.view.DataPanel.Controls.Add(tmp);
+                this.view.DataPanel.Controls.SetChildIndex(tmp, i++);
             }
         }
 

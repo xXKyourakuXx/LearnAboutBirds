@@ -31,7 +31,7 @@ namespace LearnAboutBirds
         {
             this.buttonToInfo = new System.Windows.Forms.Button();
             this.buttonRestart = new System.Windows.Forms.Button();
-            this.datagrid = new System.Windows.Forms.TableLayoutPanel();
+            this.datagrid = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // buttonToInfo
@@ -76,18 +76,12 @@ namespace LearnAboutBirds
             // 
             // datagrid
             // 
-            this.datagrid.AutoSize = true;
             this.datagrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.datagrid.BackColor = System.Drawing.Color.Transparent;
-            this.datagrid.ColumnCount = 1;
-            this.datagrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.datagrid.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.datagrid.Location = new System.Drawing.Point(187, 161);
+            this.datagrid.Location = new System.Drawing.Point(168, 118);
             this.datagrid.Margin = new System.Windows.Forms.Padding(0);
             this.datagrid.Name = "datagrid";
-            this.datagrid.RowCount = 1;
-            this.datagrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.datagrid.Size = new System.Drawing.Size(0, 0);
+            this.datagrid.Size = new System.Drawing.Size(200, 100);
             this.datagrid.TabIndex = 4;
             // 
             // GameScreen
@@ -115,6 +109,6 @@ namespace LearnAboutBirds
 
         private System.Windows.Forms.Button buttonToInfo;
         private System.Windows.Forms.Button buttonRestart;
-        private System.Windows.Forms.TableLayoutPanel datagrid;
+        private System.Windows.Forms.FlowLayoutPanel datagrid;
     }
 }

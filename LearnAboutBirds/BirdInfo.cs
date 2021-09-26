@@ -3,7 +3,6 @@
     using System.Drawing;
     using System.Media;
     using System.Threading;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     public partial class BirdInfo : UserControl
@@ -26,8 +25,8 @@
             this.correctAnswer = correctAnswer;
 
             this.SuspendLayout();
-            this.Width = 250;
-            this.Height = 300;
+            this.Width = Properties.Settings.Default.BirdWidth;
+            this.Height = Properties.Settings.Default.BirdHeight;
             this.labelName.Text = bird.Name;
             this.pictureBoxImage.Image = Bitmap.FromFile(bird.ImageLocation);
             this.soundLocation = bird.SoundLocation;
@@ -36,9 +35,6 @@
 
             this.sp = new SoundPlayer(this.soundLocation);
         }
-
-        private void BirdInfo_Load(object sender, System.EventArgs e)
-            => this.Dock = DockStyle.Fill;
 
         private void pictureBoxImage_Click(object sender, System.EventArgs e)
         {
