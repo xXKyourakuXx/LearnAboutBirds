@@ -39,7 +39,7 @@
 
         private void pictureBoxImage_Click(object sender, System.EventArgs e)
         {
-            if(!this.isInGame)
+            if (!this.isInGame)
             {
                 if (this.currentlyPlayingSound)
                 {
@@ -64,12 +64,12 @@
                     this.pictureBoxImage.Image = Properties.Resources.error;
 
                 this.pictureBoxImage.Refresh();
-                
+
                 var cursor = Program.main.Cursor;
                 Program.main.Cursor = Cursors.WaitCursor;
                 Thread.Sleep(700);
                 Program.main.Cursor = cursor;
-                
+
                 this.pictureBoxImage.Image = Image.FromFile(this.bird.ImageLocation);
             }
         }
