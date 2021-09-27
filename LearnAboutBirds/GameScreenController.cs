@@ -42,6 +42,7 @@
 
         public void LoadInfoScreen()
         {
+            Utils.StopSound();
             this.view.Controls.Clear();
             this.view.Controls.Add(new InfoScreen());
         }

@@ -87,6 +87,9 @@
         }
 
         private void BirdInfo_Leave(object sender, System.EventArgs e)
-            => sp.Stop();
+        {
+            sp.Stop();
+            Utils.StopSound();
+        }
     }
 }
