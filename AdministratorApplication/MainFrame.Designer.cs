@@ -209,7 +209,6 @@ namespace AdministratorApplication
             this.textBoxName.Size = new System.Drawing.Size(615, 35);
             this.textBoxName.TabIndex = 7;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxName.Leave += new System.EventHandler(this.textBoxes_Leave);
             // 
             // numericUpDownLevel
             // 
@@ -249,7 +248,6 @@ namespace AdministratorApplication
             this.textBoxSoundLocation.Size = new System.Drawing.Size(419, 29);
             this.textBoxSoundLocation.TabIndex = 5;
             this.textBoxSoundLocation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxSoundLocation.Leave += new System.EventHandler(this.textBoxes_Leave);
             // 
             // textBoxImageLocation
             // 
@@ -260,7 +258,6 @@ namespace AdministratorApplication
             this.textBoxImageLocation.Name = "textBoxImageLocation";
             this.textBoxImageLocation.Size = new System.Drawing.Size(419, 29);
             this.textBoxImageLocation.TabIndex = 6;
-            this.textBoxImageLocation.Leave += new System.EventHandler(this.textBoxes_Leave);
             // 
             // buttonBrowseImage
             // 
@@ -313,6 +310,7 @@ namespace AdministratorApplication
             this.buttonAddNew.TabIndex = 2;
             this.buttonAddNew.Text = "Új hozzáadása";
             this.buttonAddNew.UseVisualStyleBackColor = false;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
             // buttonDelete
             // 
@@ -333,6 +331,7 @@ namespace AdministratorApplication
             this.buttonDelete.TabIndex = 1;
             this.buttonDelete.Text = "Eltávolítás";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonSave
             // 

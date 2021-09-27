@@ -3,8 +3,9 @@
     using LearnAboutBirds;
     using System;
     using System.IO;
-    using System.Text;
     using System.Linq;
+    using System.Text;
+    using System.Windows.Forms;
 
     public class MainFrameController
     {
@@ -23,6 +24,8 @@
             if (!data.LoadBirdsFromCSV())
                 throw new Exception($"Hiba a madarak betöltése közben a CSV fájlban. {data.CSVPath}");
 
+            this.view.DataPanel.SuspendLayout();
+            this.view.DataPanel.Controls.Clear();
             int i = 0;
             foreach (Bird item in data.Birds)
             {
@@ -32,6 +35,7 @@
                 this.view.DataPanel.Controls.Add(tmp);
                 this.view.DataPanel.Controls.SetChildIndex(tmp, i++);
             }
+            this.view.DataPanel.ResumeLayout(true);
         }
 
         private void UpdateCSV()
@@ -51,13 +55,45 @@
         {
             // find the bird with the same name
             Bird tmp = this.data.Birds.Where(x => x.Name.Equals(bird.Name)).FirstOrDefault();
-            // remove it
-            if( ! (tmp is null) )
-                this.data.Birds.Remove(tmp);
 
-            this.data.Birds.Add(bird);
-            
-            this.UpdateCSV();
+            string message = string.Empty;
+
+            // remove it
+            if (!(tmp is null))
+            {
+                message = "Sikeresen mentettük a madár módosításait.";
+                this.data.Birds.Remove(tmp);
+                this.data.Birds.Add(bird);
+            }
+            else
+            {
+                message = "Sikeresen mentettük az új madarat.";
+                this.data.Birds.Add(bird);
+            }
+
+            try { this.UpdateCSV(); }
+            catch (Exception ex) { throw ex; }
+
+            MessageBox.Show(message, "Információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.RefreshView();
+        }
+
+        public void RemoveBird(Bird bird)
+        {
+            Bird tmp = this.data.Birds.Where(x => x.Name.Equals(bird.Name)).FirstOrDefault();
+            this.data.Birds.Remove(tmp);
+
+            try { this.UpdateCSV(); }
+            catch (Exception ex) { throw ex; }
+
+            MessageBox.Show("Sikeresen eltávolítottuk a madarat.", "Információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            this.view.ClearFields();
+            this.LoadBirds();
         }
     }
 }

@@ -42,15 +42,21 @@ namespace LearnAboutBirds
 			this.IncompatibleWithOtherBirds = incompat;
 		}
 
+		public Bird(Bird bird)
+		{
+            this.Name = bird.Name;
+            this.Level = bird.Level;
+            this.SoundLocation = bird.SoundLocation;
+            this.ImageLocation = bird.ImageLocation;
+            this.IncompatibleWithOtherBirds = bird.IncompatibleWithOtherBirds;
+		}
+
         public override string ToString()
         {
 			if (this.IncompatibleWithOtherBirds is null)
 				this.IncompatibleWithOtherBirds = new List<string>();
 
-			StringBuilder b = new StringBuilder(
-				$"{this.Name};{this.SoundLocation};" +
-				$"{this.ImageLocation};{this.Level};" +
-				$"{string.Join(",", this.IncompatibleWithOtherBirds)}");
+			StringBuilder b = new StringBuilder($"{this.Name};{this.SoundLocation};{this.ImageLocation};{this.Level};{string.Join(",", this.IncompatibleWithOtherBirds)}");
 
 			return b.ToString();
         }

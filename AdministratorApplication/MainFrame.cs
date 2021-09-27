@@ -7,7 +7,9 @@
     public partial class MainFrame : Form
     {
         private readonly MainFrameController controller;
+        private Bird selected;
 
+        public Bird SelectedBird { get { return this.selected; } }
         public FlowLayoutPanel DataPanel { get { return this.flowLayoutPanelLeft; } }
 
         public MainFrame()
@@ -53,6 +55,7 @@
             if (bird is null)
                 return;
 
+            this.selected = bird;
             this.textBoxImageLocation.Text = bird.ImageLocation;
             this.textBoxSoundLocation.Text = bird.SoundLocation;
             this.textBoxName.Text = bird.Name;
@@ -86,22 +89,60 @@
             return !string.IsNullOrWhiteSpace(trimmed) && trimmed.Length > 3;
         }
 
-        private void textBoxes_Leave(object sender, EventArgs e)
-            => this.buttonSave.Enabled = this.CheckValues();
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
             try
             {
-                this.controller.SaveBirds(new Bird(
-                    this.textBoxName.Text,
-                    this.textBoxSoundLocation.Text,
-                    this.textBoxImageLocation.Text,
-                    Convert.ToInt32(this.numericUpDownLevel.Value)
-                ));
+                if(this.CheckValues())
+                    this.controller.SaveBirds(new Bird(
+                        this.textBoxName.Text,
+                        this.textBoxSoundLocation.Text,
+                        this.textBoxImageLocation.Text,
+                        Convert.ToInt32(this.numericUpDownLevel.Value)
+                    ));
             }
             catch(Exception ex)
             { MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void buttonAddNew_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(this.CheckValues())
+                    this.controller.SaveBirds(new Bird(
+                        this.textBoxName.Text,
+                        this.textBoxSoundLocation.Text,
+                        this.textBoxImageLocation.Text,
+                        Convert.ToInt32(this.numericUpDownLevel.Value)
+                    ));
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.controller.RemoveBird(new Bird(
+                    this.selected.Name,
+                    this.selected.SoundLocation,
+                    this.selected.ImageLocation,
+                    this.selected.Level
+                ));
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        public void ClearFields()
+        {
+            this.pictureBoxImage.Image = null;
+            this.numericUpDownLevel.Value = 1;
+            this.textBoxImageLocation.Text = string.Empty;
+            this.textBoxName.Text = string.Empty;
+            this.textBoxSoundLocation.Text = string.Empty;
         }
     }
 }
