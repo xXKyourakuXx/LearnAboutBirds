@@ -11,5 +11,8 @@
     <Setting Name="NumberOfBirds" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
+    <Setting Name="BirdInGameRatio" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.7</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

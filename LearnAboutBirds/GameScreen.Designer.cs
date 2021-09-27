@@ -95,9 +95,9 @@ namespace LearnAboutBirds
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.BackgroundImage = global::LearnAboutBirds.Properties.Resources.gameBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.datagrid);
-            this.Controls.Add(this.buttonRestart);
             this.Controls.Add(this.buttonToInfo);
+            this.Controls.Add(this.buttonRestart);
+            this.Controls.Add(this.datagrid);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GameScreen";

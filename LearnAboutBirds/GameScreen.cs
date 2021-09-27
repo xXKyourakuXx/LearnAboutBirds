@@ -25,6 +25,8 @@
             {
                 this.buttonRestart_Click(this, EventArgs.Empty);
                 this.datagrid.Location = Utils.PositionDataGrid(this);
+                this.buttonRestart.BringToFront();
+                this.buttonToInfo.BringToFront();
             }
             catch (Exception ex)
             {

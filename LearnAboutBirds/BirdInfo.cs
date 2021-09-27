@@ -24,7 +24,7 @@
             this.bird = bird;
             this.isInGame = isInGame;
             this.correctAnswer = correctAnswer;
-            ratio = isInGame ? 0.75f : 1;
+            ratio = isInGame ? Properties.Settings.Default.BirdInGameRatio : 1;
             this.SuspendLayout();
             this.Width = System.Convert.ToInt32(width * ratio);
             this.Height = width;

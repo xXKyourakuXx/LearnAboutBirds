@@ -58,5 +58,17 @@ namespace LearnAboutBirds.Properties {
                 this["NumberOfBirds"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.7")]
+        public float BirdInGameRatio {
+            get {
+                return ((float)(this["BirdInGameRatio"]));
+            }
+            set {
+                this["BirdInGameRatio"] = value;
+            }
+        }
     }
 }
