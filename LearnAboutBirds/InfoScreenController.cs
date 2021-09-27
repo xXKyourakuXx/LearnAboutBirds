@@ -14,6 +14,8 @@
 
         public void LoadImages()
         {
+            int fontSize = Convert.ToInt32(Program.main.Width * Properties.Settings.Default.ScreenSizeFontRatio);
+
             BirdSet data = new BirdSet(Path.Combine(Environment.CurrentDirectory,"sources","birds_sample.csv"));
 
             if (!data.LoadBirdsFromCSV())
@@ -26,6 +28,7 @@
             foreach (Bird item in data.Birds)
             {
                 BirdInfo tmp = new BirdInfo(item, width);
+                tmp.FontSize = fontSize;
                 tmp.Parent = this.view.DataPanel;
                 this.view.DataPanel.Controls.Add(tmp);
                 this.view.DataPanel.Controls.SetChildIndex(tmp, i++);

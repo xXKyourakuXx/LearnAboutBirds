@@ -14,5 +14,8 @@
     <Setting Name="BirdInGameRatio" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.7</Value>
     </Setting>
+    <Setting Name="ScreenSizeFontRatio" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.0116</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

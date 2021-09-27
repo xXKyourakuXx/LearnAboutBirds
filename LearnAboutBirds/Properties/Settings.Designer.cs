@@ -70,5 +70,17 @@ namespace LearnAboutBirds.Properties {
                 this["BirdInGameRatio"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.0116")]
+        public float ScreenSizeFontRatio {
+            get {
+                return ((float)(this["ScreenSizeFontRatio"]));
+            }
+            set {
+                this["ScreenSizeFontRatio"] = value;
+            }
+        }
     }
 }

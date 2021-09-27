@@ -16,6 +16,8 @@
 
         public void LoadRandomImages(int count)
         {
+            int fontSize = Convert.ToInt32(Program.main.Width * 0.0116);
+
             BirdSet data = new BirdSet(Path.Combine(Environment.CurrentDirectory, "sources", "birds_sample.csv"));
 
             if (!data.LoadBirdsFromCSV())
@@ -32,7 +34,7 @@
 
             this.view.DataPanel.Controls.Clear();
             foreach (Bird item in this.randomList)
-                this.view.DataPanel.Controls.Add(new BirdInfo(item, width, true, b));
+                this.view.DataPanel.Controls.Add(new BirdInfo(item, width, true, b, fontSize));
 
             // start playing sound until the user clicks on a bird's image, then the Utils.StopSound() is called
             Utils.PlaySound(this.randomList[randomSoundIndex].SoundLocation, true);

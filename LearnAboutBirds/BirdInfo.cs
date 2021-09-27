@@ -14,10 +14,20 @@
         private Bird correctAnswer;
         private bool isInGame;
         private float ratio;
+        private int fontSize;
 
         public Bird Bird { get { return this.bird; } }
+        public int FontSize 
+        { 
+            get { return this.fontSize; } 
+            set 
+            {
+                this.labelName.Font = new Font(this.labelName.Font.FontFamily, value); 
+                this.fontSize = value;
+            } 
+        }
 
-        public BirdInfo(Bird bird, int width, bool isInGame = false, Bird correctAnswer = null)
+        public BirdInfo(Bird bird, int width, bool isInGame = false, Bird correctAnswer = null, int fontSize = 0)
         {
             InitializeComponent();
 
@@ -29,6 +39,8 @@
             this.Width = System.Convert.ToInt32(width * ratio);
             this.Height = width;
             this.labelName.Text = bird.Name;
+            if (fontSize != 0)
+                this.labelName.Font = new Font(this.labelName.Font.FontFamily, fontSize);
             this.pictureBoxImage.Image = Bitmap.FromFile(bird.ImageLocation);
             this.soundLocation = bird.SoundLocation;
             this.currentlyPlayingSound = false;

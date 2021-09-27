@@ -19,6 +19,8 @@
 
         public void LoadBirds()
         {
+            int fontSize = Convert.ToInt32(this.view.Width * Properties.Settings.Default.ScreenSizeFontRatio);
+
             this.data = new BirdSet(Path.Combine(Environment.CurrentDirectory, "sources", "birds_sample.csv"));
 
             if (!data.LoadBirdsFromCSV())
@@ -29,7 +31,7 @@
             int i = 0;
             foreach (Bird item in data.Birds)
             {
-                AdminBirdInfo tmp = new AdminBirdInfo (item, 150, this.view);
+                AdminBirdInfo tmp = new AdminBirdInfo (item, 150, this.view, fontSize);
                 tmp.Parent = this.view.DataPanel;
                 
                 this.view.DataPanel.Controls.Add(tmp);

@@ -11,7 +11,7 @@
 
         public Bird Bird { get { return this.bird; } }
 
-        public AdminBirdInfo(Bird bird, int size, MainFrame form)
+        public AdminBirdInfo(Bird bird, int size, MainFrame form, int fontSize)
         {
             InitializeComponent();
             
@@ -22,6 +22,7 @@
             this.Width = size;
             this.Height = size;
             this.labelName.Text = bird.Name;
+            this.labelName.Font = new Font(this.labelName.Font.FontFamily, fontSize);
             this.pictureBoxImage.Image = Bitmap.FromFile(bird.ImageLocation);
             this.ResumeLayout();
         }
