@@ -130,6 +130,9 @@
     <None Include="Resources\correct.png" />
     <None Include="Resources\reset.png" />
     <None Include="Resources\back.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\like.png" />
     <Content Include="sources\Bagoly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

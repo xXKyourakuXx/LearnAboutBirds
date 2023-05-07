@@ -28,12 +28,11 @@ namespace LearnAboutBirds
 			return !(this.birds == null || this.birds.Count == 0);
 		}
 
-		public IList<Bird> GetRandomBirds(int size)
+		public IList<Bird> GetRandomBirds(int size, int level = 1)
 		{
 			Random r = new Random();
 
-			// filter level 1 birds only
-			List<Bird> baseBirds = this.birds.Where(x => x.Level == 1).ToList<Bird>();
+			List<Bird> baseBirds = this.birds.Where(x => x.Level <= level).ToList<Bird>();
 			List<Bird> outList = new List<Bird>();
 
 			int count = 0;

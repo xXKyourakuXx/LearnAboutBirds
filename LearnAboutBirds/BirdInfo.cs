@@ -7,6 +7,7 @@
 
     public partial class BirdInfo : UserControl
     {
+        private readonly GameScreenController controller;
         private string soundLocation;
         private bool currentlyPlayingSound;
         private SoundPlayer sp;
@@ -27,10 +28,10 @@
             } 
         }
 
-        public BirdInfo(Bird bird, int width, bool isInGame = false, Bird correctAnswer = null, int fontSize = 0)
+        public BirdInfo(Bird bird, int width, GameScreenController controller = null, bool isInGame = false, Bird correctAnswer = null, int fontSize = 0)
         {
             InitializeComponent();
-
+            this.controller = controller;
             this.bird = bird;
             this.isInGame = isInGame;
             this.correctAnswer = correctAnswer;
@@ -66,23 +67,35 @@
             }
             else
             {
+                this.pictureBoxImage.Click -= pictureBoxImage_Click;
+                var cursor = Program.main.Cursor;
+
                 if (this.correctAnswer == this.bird)
                 {
                     this.pictureBoxImage.Image = Properties.Resources.correct;
-
                     Utils.StopSound();
+
+                    this.pictureBoxImage.Refresh();
+
+                    Program.main.Cursor = Cursors.WaitCursor;
+                    Thread.Sleep(700);
+                    Program.main.Cursor = cursor;
+
+                    this.controller.CorrectAnswer();
                 }
                 else
+                {
                     this.pictureBoxImage.Image = Properties.Resources.error;
+                    Utils.StopSound();
 
-                this.pictureBoxImage.Refresh();
+                    this.pictureBoxImage.Refresh();
 
-                var cursor = Program.main.Cursor;
-                Program.main.Cursor = Cursors.WaitCursor;
-                Thread.Sleep(700);
-                Program.main.Cursor = cursor;
+                    Program.main.Cursor = Cursors.WaitCursor;
+                    Thread.Sleep(700);
+                    Program.main.Cursor = cursor;
 
-                this.pictureBoxImage.Image = Image.FromFile(this.bird.ImageLocation);
+                    this.controller.IncorrectAnswer();
+                }
             }
         }
 
